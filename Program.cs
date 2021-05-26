@@ -16,7 +16,27 @@ namespace Quest
             //   a number of awesome points to gain or lose depending on the success of the challenge
             Console.Write("What's your name traveler? ");
             string aName = Console.ReadLine();
+            Console.Write("What colors are you robes? ");
+            List<string> robes = new List<string>() { };
+            string robeRes = Console.ReadLine();
+            while (robeRes.ToLower() != "n")
+            {
+                robes.Add(robeRes);
+                Console.Write("Next color of the robe or 'n' to quit?: ");
+                robeRes = Console.ReadLine();
+            }
+            Console.Write("How long in inches is your robe? ");
+            int Length = 0;
+            while (!int.TryParse(Console.ReadLine(), out Length))
+            {
+                Console.Write("I need a whole number!");
+            }
+            Robe ColorFulRobe = new Robe();
+            ColorFulRobe.Length = Length;
+            ColorFulRobe.Colors = robes;
+            Adventurer theAdventurer = new Adventurer(aName, ColorFulRobe);
             bool endGame = false;
+            theAdventurer.getDescription();
             while (!endGame)
             {
 
@@ -49,7 +69,6 @@ namespace Quest
                 int maxAwesomeness = 100;
 
                 // Make a new "Adventurer" object using the "Adventurer" class
-                Adventurer theAdventurer = new Adventurer(aName);
 
                 // A list of challenges for the Adventurer to complete
                 // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
