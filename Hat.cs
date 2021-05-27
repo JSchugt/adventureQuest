@@ -20,7 +20,7 @@ namespace Quest
             }
             else
             {
-                level = "bliding";
+                level = "blinding";
             }
             return level;
         }
