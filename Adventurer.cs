@@ -48,7 +48,7 @@ namespace Quest
 
             return $"Adventurer, {Name}, is {status}";
         }
-
+        public int correctNum = 0;
         public Robe ColorfulRobe { get; }
         public void getDescription()
         {
