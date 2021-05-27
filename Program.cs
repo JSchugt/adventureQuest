@@ -41,8 +41,8 @@ namespace Quest
             bool endGame = false;
             theAdventurer.getDescription();
             List<Challenge> theQuest = new List<Challenge>(){
-new Challenge("2 + 2?", 4, 10),
-new Challenge("What's the answer to life, the universe and everything?", 42, 25),
+                new Challenge("2 + 2?", 4, 10),
+                new Challenge("What's the answer to life, the universe and everything?", 42, 25),
                 new Challenge(
                 "What is the current second?", DateTime.Now.Second, 50),
                 new Challenge("What number am I thinking of?", new Random().Next() % 10, 25),
@@ -61,28 +61,9 @@ new Challenge("What's the answer to life, the universe and everything?", 42, 25)
             4) Dilitium Crystals",3,50),
             new Challenge("When you evaluate the integral x^2 from 0 to 3 what number do you get?",27,44)
             };
-
-            // Challenge twoPlusTwo = new Challenge("2 + 2?", 4, 10);
-            // Challenge theAnswer = new Challenge(
-            //     "What's the answer to life, the universe and everything?", 42, 25);
-            // Challenge whatSecond = new Challenge(
-            //     "What is the current second?", DateTime.Now.Second, 50);
-
-            // int randomNumber = new Random().Next() % 10;
-            // Challenge guessRandom = new Challenge("What number am I thinking of?", new Random().Next() % 10, 25);
-
-            //             Challenge favoriteBeatle = new Challenge(
-            //                 @"Who's your favorite Beatle?
-            //     1) John
-            //     2) Paul
-            //     3) George
-            //     4) Ringo
-            // ",
-            //                 4, 20
-            //             );
             while (!endGame)
             {
-
+                theAdventurer.Awesomeness += 10 * theAdventurer.correctNum;
                 // "Awesomeness" is like our Adventurer's current "score"
                 // A higher Awesomeness is better
 
