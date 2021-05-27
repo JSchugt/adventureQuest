@@ -34,7 +34,9 @@ namespace Quest
             Robe ColorFulRobe = new Robe();
             ColorFulRobe.Length = Length;
             ColorFulRobe.Colors = robes;
-            Adventurer theAdventurer = new Adventurer(aName, ColorFulRobe);
+            Hat hat = new Hat();
+            hat.ShininessLevel = 20;
+            Adventurer theAdventurer = new Adventurer(aName, ColorFulRobe, hat);
             bool endGame = false;
             theAdventurer.getDescription();
             while (!endGame)
