@@ -9,6 +9,7 @@ namespace Quest
     {
         static void Main(string[] args)
         {
+            Prize prize = new Prize("Golden Goose");
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -39,27 +40,48 @@ namespace Quest
             Adventurer theAdventurer = new Adventurer(aName, ColorFulRobe, hat);
             bool endGame = false;
             theAdventurer.getDescription();
+            List<Challenge> theQuest = new List<Challenge>(){
+new Challenge("2 + 2?", 4, 10),
+new Challenge("What's the answer to life, the universe and everything?", 42, 25),
+                new Challenge(
+                "What is the current second?", DateTime.Now.Second, 50),
+                new Challenge("What number am I thinking of?", new Random().Next() % 10, 25),
+                new Challenge(
+                @"Who's your favorite Beatle?
+                1) John
+                2) Paul
+                3) George
+                4) Ringo", 4, 20),
+            new Challenge("What's the first prime number?", 2, 23),
+            new Challenge("How many planets are in the Sol system?",9,1000),
+            new Challenge(@"What can you put in a box to make it lighter?
+            1) Helium
+            2) Elevator
+            3) Hole
+            4) Dilitium Crystals",3,50),
+            new Challenge("When you evaluate the integral x^2 from 0 to 3 what number do you get?",27,44)
+            };
+
+            // Challenge twoPlusTwo = new Challenge("2 + 2?", 4, 10);
+            // Challenge theAnswer = new Challenge(
+            //     "What's the answer to life, the universe and everything?", 42, 25);
+            // Challenge whatSecond = new Challenge(
+            //     "What is the current second?", DateTime.Now.Second, 50);
+
+            // int randomNumber = new Random().Next() % 10;
+            // Challenge guessRandom = new Challenge("What number am I thinking of?", new Random().Next() % 10, 25);
+
+            //             Challenge favoriteBeatle = new Challenge(
+            //                 @"Who's your favorite Beatle?
+            //     1) John
+            //     2) Paul
+            //     3) George
+            //     4) Ringo
+            // ",
+            //                 4, 20
+            //             );
             while (!endGame)
             {
-
-                Challenge twoPlusTwo = new Challenge("2 + 2?", 4, 10);
-                Challenge theAnswer = new Challenge(
-                    "What's the answer to life, the universe and everything?", 42, 25);
-                Challenge whatSecond = new Challenge(
-                    "What is the current second?", DateTime.Now.Second, 50);
-
-                int randomNumber = new Random().Next() % 10;
-                Challenge guessRandom = new Challenge("What number am I thinking of?", randomNumber, 25);
-
-                Challenge favoriteBeatle = new Challenge(
-                    @"Who's your favorite Beatle?
-    1) John
-    2) Paul
-    3) George
-    4) Ringo
-",
-                    4, 20
-                );
 
                 // "Awesomeness" is like our Adventurer's current "score"
                 // A higher Awesomeness is better
@@ -71,17 +93,12 @@ namespace Quest
                 int maxAwesomeness = 100;
 
                 // Make a new "Adventurer" object using the "Adventurer" class
-
+                // theQuest.AddRange(Enumerable.Range(1, 48)
+                //                                .OrderBy(i => rand.Next())
+                //                                .Take(6))
                 // A list of challenges for the Adventurer to complete
                 // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
-                List<Challenge> challenges = new List<Challenge>()
-            {
-                twoPlusTwo,
-                theAnswer,
-                whatSecond,
-                guessRandom,
-                favoriteBeatle
-            };
+                List<Challenge> challenges = Challenge.GetRadomQuestions(theQuest);
 
                 // Loop through all the challenges and subject the Adventurer to them
                 foreach (Challenge challenge in challenges)
@@ -103,7 +120,7 @@ namespace Quest
                 {
                     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
                 }
-
+                prize.ShowPrize(theAdventurer);
                 Console.Write("Want to play again (y/n)? ");
                 string resposne = "";
                 resposne = Console.ReadLine();

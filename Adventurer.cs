@@ -59,7 +59,7 @@ namespace Quest
             }
             Console.WriteLine(message);
             Console.WriteLine($"Your robe is {ColorfulRobe.Length} inches long");
-            Console.WriteLine($"Your hate is {hat.ShininessDescription()}");
+            Console.WriteLine($"Your hat is {hat.ShininessDescription()}");
         }
     }
 }
